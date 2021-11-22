@@ -1,6 +1,7 @@
 # Proses pemisahan
 def symbols_parser(line, symbols):
     line = line.strip("\n")
+    line = line.strip(" ")
     list_line = line.split(" ")
     i = 0
     while(i < len(list_line)):

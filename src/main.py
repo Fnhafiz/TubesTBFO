@@ -16,6 +16,7 @@ formatted_lines = []
 for i in range(len(lines)):
     temp = symbols_parser(lines[i], symbols)
     formatted_lines.append(temp)
+    print(temp)
 
 rules = rules_parser('CNF_GABUNGAN.txt')
 
@@ -23,7 +24,10 @@ isCorrect = True
 i = 0
 while isCorrect and i < len(formatted_lines):
     line = formatted_lines[i]
-    if (not cyk_algorithm(line, rules)):
+    if (line[0] == ''):
+        i += 1
+        continue
+    elif (not cyk_algorithm(line, rules)):
         isCorrect = False
     else:
         i += 1

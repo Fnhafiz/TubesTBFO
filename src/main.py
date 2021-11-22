@@ -1,10 +1,12 @@
 from rules_parser import rules_parser
 from symbols_parser import symbols_parser
 from cyk_algorithm import cyk_algorithm
+from cykalg import cykParse
 import sys
 
 symbols = ['(', ')', '[', ']', '{', '}',
-           ',', ':', '\'', '"'
+           ',', ':', '\'', '"',
+           '+','-','*','/','%','@',
            '<', '>', '=']
 
 filename = sys.argv[1]
@@ -27,7 +29,7 @@ while isCorrect and i < len(formatted_lines):
     if (line[0] == ''):
         i += 1
         continue
-    elif (not cyk_algorithm(line, rules)):
+    elif (not cykParse(line, rules)):
         isCorrect = False
     else:
         i += 1

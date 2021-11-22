@@ -1,20 +1,22 @@
-RULE = {}
-
-
-def read_rules ():
+def rules_parser(filename):
+    RULE = {}
     lines = []
-    global RULE
-    with open('CNF_GABUNGAN.txt') as f:
-        lines = f.readlines()
+    with open(filename) as file:
+        lines = file.readlines()
     for line in lines:
         line = line.strip('\n')
-        line = line.replace("->","")
+        line = line.replace("->", "")
         words = line.split(" ")
 #        words = line.replace("->", "").split()
-        print(words)
+        # print(words)
         if words[0] not in RULE:
             RULE[words[0]] = []
         RULE[words[0]].append(words[2:])
+    return RULE
 
-read_rules()
-print(RULE)
+
+''' TEST CASE'''
+# rule = read_rules()
+
+# for k, v in rule.items():
+#     print(k, v)

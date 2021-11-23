@@ -3,7 +3,7 @@ from vard import funct as func
 with open('example.txt', 'w') as my_file:
     LOLO = JJD
 while X<L and Y<X or not [z] :
-    D=K
+    D = 123
     break
 if var > var :
     not MOM

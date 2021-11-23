@@ -19,3 +19,6 @@ else :
 
 h = 5 if N > 10 else 6
 5 if N > 10 else 6
+U=[]
+R=2
+U[3,R,R] = R[h]

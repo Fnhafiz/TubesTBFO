@@ -14,7 +14,7 @@ symbols = ['(', ')', '[', ']', '{', '}',
 
 # condition indeks 1 untuk kondisi if elif dan else
 # condition indeks 2 untuk kondisi apakah masuk fungsi atau tidak
-condition = ([], False)
+condition = [[], False]
 
 filename = sys.argv[1]
 lines = []
@@ -42,7 +42,7 @@ while isCorrect and i < len(formatted_lines):
     if (line[0] == ''):
         i += 1
         continue
-    isCorrect = cyk_algorithm(line, rules)
+    isCorrect, condition = cyk_algorithm(line, rules, condition)
     if (isCorrect):
         i += 1
 

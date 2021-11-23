@@ -1,6 +1,6 @@
 from checker import number_checker, variable_checker
 
-def cyk_algorithm(line, rules):
+def cyk_algorithm(line, rules, condition):
     n = len(line)
     #print(n)
 
@@ -17,6 +17,37 @@ def cyk_algorithm(line, rules):
                         if len(rhs) == 1:
                             if rhs[0] == line[j]:
                                 table[i][j].add(lhs)
+                                
+                                # kondisi if else elif
+                                if (line[j] == 'if'):
+                                    condition[0].append('if')
+                                elif (line[j] == 'elif'):
+                                    if (len(condition[0]) == 0):
+                                        return False, condition
+                                    else:
+                                        check = condition[0].pop()
+                                        if (check == 'if') or (check == 'elif'):
+                                            condition[0].append('if')
+                                        else:
+                                            return False, condition
+                                
+                                elif (line[j] == 'else'):
+                                    if (len(condition[0]) == 0):
+                                        return False, condition
+                                    else:
+                                        check = condition[0].pop()
+                                        if (check != 'if'):
+                                            return False, condition
+
+                                # kondisi function
+                                if (line[j] == 'def'):
+                                    condition[1] = True
+
+                                # kondisi return
+                                if (line[j] == 'return'):
+                                    if not condition[1]:
+                                        return False, condition
+
                     # cek untuk variabel
                     for rhs in rule:
                         if rhs[0] == 'var':
@@ -58,6 +89,6 @@ def cyk_algorithm(line, rules):
 
     # Cek jika line bisa dibentuk berdasarkan rule
     if len(table[n-1][0]) != 0:
-        return True
+        return True, condition
     else:
-        return False
+        return False, condition

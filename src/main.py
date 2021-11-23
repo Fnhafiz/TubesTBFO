@@ -1,10 +1,9 @@
 from rules_parser import rules_parser
+from line_parser import symbols_parser
 from cyk_algorithm import cyk_algorithm
-from cykalg import cykParse
 from checker import replace_operator
 from checker import string_checker
 from checker import comment_checker
-from parsers import symbols_parser
 import sys
 
 symbols = ['(', ')', '[', ']', '{', '}',

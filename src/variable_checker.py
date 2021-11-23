@@ -29,17 +29,18 @@ def variable_checker(var):
 
 '''Test Case Variable Checker'''
 
+'''
 var  = "AKU_sayang_kAmU"
 var2 = "_Halo"
 var3 = "123Test"
 var4 = "Hello_World_999"
 var5 = "yuhuu+yes"
 var6 = "-TBFO"
+var7 = "akmal[akmal"
 
-is_variable = variable_checker(var3)
+is_variable = variable_checker(var7)
 if (is_variable == True):
     print("yes")
 else :
     print("No")
-
-
+'''

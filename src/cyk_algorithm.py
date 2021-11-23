@@ -1,3 +1,5 @@
+from variable_checker import variable_checker
+
 def cyk_algorithm(line, rules):
     n = len(line)
 
@@ -11,8 +13,13 @@ def cyk_algorithm(line, rules):
                 for lhs, rule in rules.items():
                     for rhs in rule:
                         # cek apabila berupa terminal
-                        if len(rhs) == 1 and rhs[0] == line[j]:
-                            table[i][j].add(lhs)
+                        if len(rhs) == 1:
+                            if rhs[0] == 'var':
+                                if(variable_checker(line[j])):
+                                    table[i][j].add(lhs)
+                            elif rhs[0] == line[j]:
+                                table[i][j].add(lhs)
+
             # Untuk case pada baris selain baris pertama, kita cek variabel
             else:
                 for k in range(0, i):

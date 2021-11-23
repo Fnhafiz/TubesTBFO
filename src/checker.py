@@ -1,6 +1,8 @@
 import string
 
+# Mengatasi kasus string
 def string_checker(line):
+    # Mengatasi kasus string menggunakan 1 petik
     is_apostrophe = False
     for i in range(len(line)):
         if is_apostrophe and line[i] == "'":
@@ -16,6 +18,7 @@ def string_checker(line):
         back_word = line[second_apostrophe:]
         line = front_word + back_word
     
+    # Mengatasi kasus string menggunakan 2 petik
     is_ditto = False
     for i in range(len(line)):
         if is_ditto and line[i] == '"':
@@ -33,6 +36,7 @@ def string_checker(line):
     
     return line
 
+# Mengatasi kasus comment
 def comment_checker(line):
     is_comment = False
 

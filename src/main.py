@@ -30,7 +30,7 @@ while isCorrect and i < len(formatted_lines):
     if (line[0] == ''):
         i += 1
         continue
-    elif (not cykParse(line, rules)):
+    elif (not cyk_algorithm(line, rules)):
         isCorrect = False
     else:
         i += 1

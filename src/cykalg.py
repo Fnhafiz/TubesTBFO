@@ -171,14 +171,15 @@ def cykParse(w,rules):
 
 # Given string
 w = "for x in var :".split()
-x = "if var > var > var :".split()
+x = "if var > var > var ".split()
 z = "def function ( var , var , var , var , var :".split()
 a = "class var :".split()
 b = "from var import function".split()
 c = "import var".split()
 # Function Call
+'''
 print(cykParse(w,R1))
-print(cykParse(x,R2))
+#print(cykParse(x,R2))
 print(cykParse(z,R3))
 print(cyk_algorithm(w, R1))
 print(cyk_algorithm(x, R2))
@@ -186,3 +187,4 @@ print(cyk_algorithm(z, R3))
 print(cyk_algorithm(a, R4))
 print(cyk_algorithm(b, R5))
 print(cyk_algorithm(c, R6))
+'''

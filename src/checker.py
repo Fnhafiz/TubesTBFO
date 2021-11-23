@@ -50,6 +50,23 @@ def comment_checker(line):
     
     return line
 
+def number_checker(num):
+    number_string = string.digits
+    number_list = list(number_string)
+
+    is_number = True
+    num_list = list(num)
+
+    i = 0
+    while(i<len(num_list)):
+        if (num_list[i] in number_list) :
+            i += 1
+        else :
+            is_number = False
+            break
+    
+    return is_number
+
 def variable_checker(var):
     alphabet_string = string.ascii_letters
     alphabet_list = list(alphabet_string)
@@ -94,9 +111,20 @@ var4 = "Hello_World_999"
 var5 = "yuhuu+yes"
 var6 = "-TBFO"
 var7 = "akmal[akmal"
-
 is_variable = variable_checker(var7)
 if (is_variable == True):
+    print("yes")
+else :
+    print("No")
+'''
+
+'''Test Case Number Checker'''
+'''
+num  = "1234"
+num2 = "-999"
+num3 = "_102"
+is_number = number_checker(num)
+if (is_number == True):
     print("yes")
 else :
     print("No")

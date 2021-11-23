@@ -17,3 +17,5 @@ else :
                 print(c1,end="")
         print("")
 
+h = 5 if N > 10 else 6
+5 if N > 10 else 6

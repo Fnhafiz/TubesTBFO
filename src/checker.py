@@ -123,7 +123,7 @@ def multicomment_checker(lines):
                 is_apostrophe = False
                 is_apostrophe_done = False
 
-                j = first_apostrophe_j + 3
+                j = first_apostrophe_j + 5
             
             j += 1
 
@@ -172,7 +172,7 @@ def multicomment_checker(lines):
                 is_ditto = False
                 is_ditto_done = False
 
-                j = first_ditto_j + 3
+                j = first_ditto_j + 5
 
             j += 1
     

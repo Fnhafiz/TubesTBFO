@@ -1,8 +1,8 @@
 from rules_parser import rules_parser
-from symbols_parser import symbols_parser
+from parser import symbols_parser
 from cyk_algorithm import cyk_algorithm
 from cykalg import cykParse
-from replace_operator import replace_operator
+from checker import replace_operator
 from checker import string_checker
 from checker import comment_checker
 import sys

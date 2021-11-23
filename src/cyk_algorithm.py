@@ -1,4 +1,4 @@
-from variable_checker import variable_checker
+from checker import variable_checker
 
 def cyk_algorithm(line, rules):
     n = len(line)

@@ -4,40 +4,59 @@ import string
 def string_checker(line):
     # Mengatasi kasus string menggunakan 1 petik
     is_apostrophe = False
+    is_apostrophe_done = False
     first_apostrophe = 0
     second_apostrophe = 0
-    for i in range(len(line)):
+    i = 0
+    while i < len(line):
         if is_apostrophe and line[i] == "'":
-            if (line[i-1] == '\\'):
-                continue
-            second_apostrophe = i
+            if (line[i-1] != '\\'):
+                second_apostrophe = i
+                is_apostrophe_done = True
         elif line[i] == "'":
             first_apostrophe = i
             is_apostrophe = True
     
-    if is_apostrophe:
-        front_word = line[:first_apostrophe+1]
-        back_word = line[second_apostrophe:]
-        line = front_word + back_word
+        if is_apostrophe and is_apostrophe_done:
+            front_word = line[:first_apostrophe+1]
+            back_word = line[second_apostrophe:]
+            line = front_word + back_word
+
+            is_apostrophe = False
+            is_apostrophe_done = False
+
+            i = first_apostrophe + 1
+        
+        i += 1
     
     # Mengatasi kasus string menggunakan 2 petik
     is_ditto = False
+    is_ditto_done = False
     first_ditto = 0
     second_ditto = 0
-    for i in range(len(line)):
+    i = 0
+    while i < len(line):
         if is_ditto and line[i] == '"':
             if (line[i-1] == '\\'):
+                i += 1
                 continue
             second_ditto = i
+            is_ditto_done = True
         elif line[i] == '"':
             first_ditto = i
             is_ditto = True
     
-    if is_ditto:
-        front_word = line[:first_ditto+1]
-        back_word = line[second_ditto:]
-        line = front_word + back_word
-    
+        if is_ditto and is_ditto_done:
+            front_word = line[:first_ditto+1]
+            back_word = line[second_ditto:]
+            line = front_word + back_word
+
+            is_ditto = False
+            is_ditto_done = False
+            
+            i = first_ditto + 1
+
+        i += 1
     return line
 
 # Mengatasi kasus comment
@@ -68,6 +87,9 @@ def multicomment_checker(lines):
         while j < len(lines[i]):
             # Mengambil indeks ketika menemukan multiple line comment kedua
             if (lines[i][j] == "'") and (j < len(lines[i]) - 2) and is_apostrophe:
+                if lines[i][j-1] == "\\":
+                    j += 1 
+                    continue
                 if lines[i][j+1] == "'":
                     if lines[i][j+2] == "'":
                         second_apostrophe_i = i            
@@ -99,6 +121,8 @@ def multicomment_checker(lines):
                 
                 is_apostrophe = False
                 is_apostrophe_done = False
+
+                j = first_apostrophe_j + 3
             
             j += 1
 
@@ -110,6 +134,9 @@ def multicomment_checker(lines):
         while j < len(lines[i]):
             # Mengambil indeks ketika menemukan multiple line comment kedua
             if (lines[i][j] == '"') and (j < len(lines[i]) - 2) and is_ditto:
+                if lines[i][j-1] == '\\':
+                    j += 1
+                    continue
                 if lines[i][j+1] == '"':
                     if lines[i][j+2] == '"':
                         second_ditto_i = i
@@ -141,6 +168,8 @@ def multicomment_checker(lines):
 
                 is_ditto = False
                 is_ditto_done = False
+
+                j = first_ditto_j + 3
 
             j += 1
     

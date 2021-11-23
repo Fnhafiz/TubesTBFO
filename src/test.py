@@ -1,4 +1,5 @@
 import var34,KOKO as v34, v35
+import math
 from vard import funct as func
 with HU[34] as my_file:
     LOLO = JJD
@@ -28,7 +29,7 @@ class var:
     x in [x,y]
     x*v is D[D]
     [] is True
-math.sqrt()
+math(dji).sqrt()
 '''
 DDFFGGHH
 '''

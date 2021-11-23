@@ -10,11 +10,12 @@ import sys
 symbols = ['(', ')', '[', ']', '{', '}',
            ',', ':', '\'', '"',
            '+','-','*','/','%','@',
-           '<', '>', '=']
+           '<', '>', '=', '\\']
 
 # condition indeks 1 untuk kondisi if elif dan else
 # condition indeks 2 untuk kondisi apakah masuk fungsi atau tidak
-condition = [[], False]
+# condition indeks 3 untuk kondisi explicit line joining
+condition = [[], False, False]
 
 filename = sys.argv[1]
 lines = []
@@ -22,15 +23,13 @@ with open(filename) as file:
     lines = file.readlines()
     lines = multicomment_checker(lines)
 
-
-for i in range(len(lines)):
-    lines[i] = string_checker(lines[i])
-    lines[i] = comment_checker(lines[i])
-    lines[i] = replace_operator(lines[i])
-
 formatted_lines = []
 for i in range(len(lines)):
-    temp = symbols_parser(lines[i], symbols)
+    lines_checked = lines[i]
+    lines_checked = string_checker(lines_checked)
+    lines_checked = comment_checker(lines_checked)
+    lines_checked = replace_operator(lines_checked)
+    temp = symbols_parser(lines_checked, symbols)
     formatted_lines.append(temp)
 
 rules = rules_parser('CNF_GABUNGAN.txt')

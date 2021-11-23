@@ -4,6 +4,8 @@ import string
 def string_checker(line):
     # Mengatasi kasus string menggunakan 1 petik
     is_apostrophe = False
+    first_apostrophe = 0
+    second_apostrophe = 0
     for i in range(len(line)):
         if is_apostrophe and line[i] == "'":
             if (line[i-1] == '\\'):
@@ -20,6 +22,8 @@ def string_checker(line):
     
     # Mengatasi kasus string menggunakan 2 petik
     is_ditto = False
+    first_ditto = 0
+    second_ditto = 0
     for i in range(len(line)):
         if is_ditto and line[i] == '"':
             if (line[i-1] == '\\'):

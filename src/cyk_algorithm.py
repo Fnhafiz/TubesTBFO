@@ -1,4 +1,4 @@
-from variable_checker import variable_checker
+from checker import number_checker, variable_checker
 
 def cyk_algorithm(line, rules):
     n = len(line)
@@ -17,10 +17,17 @@ def cyk_algorithm(line, rules):
                         if len(rhs) == 1:
                             if rhs[0] == line[j]:
                                 table[i][j].add(lhs)
+                    # cek untuk variabel
                     for rhs in rule:
                         if rhs[0] == 'var':
                             if len(table[i][j]) == 0:
                                 if(variable_checker(line[j])):
+                                    table[i][j].add(lhs)
+                    # cek untuk number
+                    for rhs in rule:
+                        if rhs[0] == 'num':
+                            if len(table[i][j]) == 0:
+                                if(number_checker(line[j])):
                                     table[i][j].add(lhs)
 
             # Untuk case pada baris selain baris pertama, kita cek variabel

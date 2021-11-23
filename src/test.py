@@ -10,13 +10,16 @@ if var > var :
     while not mom :
         var(1, var2, var3)
         continue
-def var(var1, var2, va3r, var4, var5):
+def var(var1, var2, va3r, var4, var5):  
     for var in var:
         for var, var, var, var in range(var, var, var):
             return range(6,7)
+def iid(vark): print(n)
 if x>8: 5*4
 else : 8*3
-for x in range( 5,6,3) : 8*F
+print("hallo")
+for x in range( 5,6,3) : print(n)
+while X>4 : j = j+1
 class var:
     var = (val*val2)
     var = var3

@@ -1,13 +1,15 @@
 from rules_parser import rules_parser
 from symbols_parser import symbols_parser
 from cyk_algorithm import cyk_algorithm
+from cykalg import cykParse
 from replace_operator import replace_operator
 from checker import string_checker
 from checker import comment_checker
 import sys
 
-symbols = ['(', ')', '[', ']', '{', '}', 
-           ',', ':', '\'', '"'
+symbols = ['(', ')', '[', ']', '{', '}',
+           ',', ':', '\'', '"',
+           '+','-','*','/','%','@',
            '<', '>', '=']
 
 # condition indeks 1 untuk kondisi if elif dan else

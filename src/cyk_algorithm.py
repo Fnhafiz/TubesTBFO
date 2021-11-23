@@ -2,7 +2,7 @@ from variable_checker import variable_checker
 
 def cyk_algorithm(line, rules):
     n = len(line)
-    print(n)
+    #print(n)
 
     # Deklarasi tabel untuk cyk algorithm
     table = [[set([]) for j in range(n)] for i in range(n)]

@@ -126,7 +126,7 @@ R6 = {
 # Function to perform the CYK Algorithm
 
 
-def cykParse(w):
+def cykParse(w,rules):
     n = len(w)
 
     # Initialize the table
@@ -136,7 +136,7 @@ def cykParse(w):
     for j in range(0, n):
 
         # Iterate over the rules
-        for lhs, rule in R2.items():
+        for lhs, rule in rules.items():
             for rhs in rule:
 
                 # If a terminal is found
@@ -150,7 +150,7 @@ def cykParse(w):
             for k in range(i, j + 1):
 
                 # Iterate over the rules
-                for lhs, rule in R2.items():
+                for lhs, rule in rules.items():
                     for rhs in rule:
 
                         # If a terminal is found
@@ -162,25 +162,29 @@ def cykParse(w):
     # If word can be formed by rules
     # of given grammar
     if len(T[0][n-1]) != 0:
-        print("True")
+        return True
     else:
-        print("False")
+        return False
 
 # Driver Code
 
 
 # Given string
-w = "for x , x , x , x in range ( var , var , var ) :".split()
-x = "if var > var > var :".split()
-z = "def function ( var , var , var , var , var ) :".split()
+w = "for x in var :".split()
+x = "if var > var > var ".split()
+z = "def function ( var , var , var , var , var :".split()
 a = "class var :".split()
 b = "from var import function".split()
 c = "import var".split()
 # Function Call
-cykParse(x)
-cyk_algorithm(w, R1)
-cyk_algorithm(x, R2)
-cyk_algorithm(z, R3)
-cyk_algorithm(a, R4)
-cyk_algorithm(b, R5)
-cyk_algorithm(c, R6)
+'''
+print(cykParse(w,R1))
+#print(cykParse(x,R2))
+print(cykParse(z,R3))
+print(cyk_algorithm(w, R1))
+print(cyk_algorithm(x, R2))
+print(cyk_algorithm(z, R3))
+print(cyk_algorithm(a, R4))
+print(cyk_algorithm(b, R5))
+print(cyk_algorithm(c, R6))
+'''

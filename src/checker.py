@@ -95,6 +95,7 @@ def multicomment_checker(lines):
                         second_apostrophe_i = i            
                         second_apostrophe_j = j
                         is_apostrophe_done = True
+                        j += 2
             # Mengambil indeks ketika menemukan multiple line comment pertama
             elif (lines[i][j] == "'") and (j < len(lines[i]) - 2):
                 if lines[i][j+1] == "'":
@@ -102,7 +103,7 @@ def multicomment_checker(lines):
                         first_apostrophe_i = i
                         first_apostrophe_j = j
                         is_apostrophe = True
-            
+                        j += 2
             # Apabila multiple line comment pertama dan kedua telah ditemukan
             if is_apostrophe and is_apostrophe_done:
                 front_word = lines[first_apostrophe_i][:first_apostrophe_j]
@@ -142,6 +143,7 @@ def multicomment_checker(lines):
                         second_ditto_i = i
                         second_ditto_j = j
                         is_ditto_done = True
+                        j += 2
             # Mengambil indeks ketika menemukan multiple line comment pertama
             elif (lines[i][j] == '"') and (j < len(lines[i]) - 2):
                 if lines[i][j+1] == '"':
@@ -149,6 +151,7 @@ def multicomment_checker(lines):
                         first_ditto_i = i
                         first_ditto_j = j
                         is_ditto = True
+                        j += 2
 
             # Apabila multiple line comment pertama dan kedua telah ditemukan
             if is_ditto and is_ditto_done:

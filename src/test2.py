@@ -15,7 +15,7 @@ else :
                 K,J = 5,4,6*9
             else :
                 print(c1,end="")
-        print("")
+        print("HELLO" + "WORLD")
 
 h = 5 if N > 10 else 6
 5 if N > 10 else 6

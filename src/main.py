@@ -2,16 +2,27 @@ from rules_parser import rules_parser
 from symbols_parser import symbols_parser
 from cyk_algorithm import cyk_algorithm
 from replace_operator import replace_operator
+from checker import string_checker
+from checker import comment_checker
 import sys
 
-symbols = ['(', ')', '[', ']', '{', '}',
+symbols = ['(', ')', '[', ']', '{', '}', 
            ',', ':', '\'', '"'
            '<', '>', '=']
+
+# condition indeks 1 untuk kondisi if elif dan else
+# condition indeks 2 untuk kondisi apakah masuk fungsi atau tidak
+condition = ([], False)
 
 filename = sys.argv[1]
 lines = []
 with open(filename) as file:
     lines = file.readlines()
+
+for i in range(len(lines)):
+    lines[i] = string_checker(lines[i])
+    lines[i] = comment_checker(lines[i])
+    lines[i] = replace_operator(lines[i])
 
 formatted_lines = []
 for i in range(len(lines)):
@@ -27,9 +38,8 @@ while isCorrect and i < len(formatted_lines):
     if (line[0] == ''):
         i += 1
         continue
-    elif (not cyk_algorithm(line, rules)):
-        isCorrect = False
-    else:
+    isCorrect = cyk_algorithm(line, rules)
+    if (isCorrect):
         i += 1
 
 if (isCorrect):

@@ -8,8 +8,7 @@ def var(var1, var2, va3r, var4, var5):
 class var:
     var = val*val2
     var = var3
-    var = []
-    var = [var for var in var(var)]
-from var import function
+
+#from var import function
 import var
     # Test untuk cek syntax

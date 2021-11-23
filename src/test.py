@@ -28,6 +28,9 @@ class var:
     x in [x,y]
     x*v is [D]
     [] is True
+'''
+DDFFGGHH
+'''
 
 
 

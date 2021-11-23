@@ -64,8 +64,15 @@ def number_checker(num):
 
     is_number = True
     num_list = list(num)
+    minus = "-"
 
     i = 0
+    if ((num_list[i] in number_list) or (num_list[i] == minus)):
+        i += 1   
+    else :
+        is_number = False
+        return is_number
+
     while(i<len(num_list)):
         if (num_list[i] in number_list) :
             i += 1
@@ -104,7 +111,7 @@ def variable_checker(var):
 def replace_operator (line):
     line = line.replace(">=",">")
     line = line.replace("<=","<")
-    line = line.replace("==","<")
+    line = line.replace("==","=")
     line = line.replace("**","*")
     return line
 
@@ -147,3 +154,4 @@ line3 = "if (A**2) == (B**3) :"
 line_new = replace_operator(line3)
 print(line_new)
 '''
+

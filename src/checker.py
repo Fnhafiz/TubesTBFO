@@ -58,6 +58,95 @@ def comment_checker(line):
     
     return line
 
+# Mengatasi kasus comment multiple line
+def multicomment_checker(lines):
+    # Cek untuk comment dengan petik 1
+    is_apostrophe = False
+    is_apostrophe_done = False
+    for i in range(len(lines)):
+        j = 0
+        while j < len(lines[i]):
+            # Mengambil indeks ketika menemukan multiple line comment kedua
+            if (lines[i][j] == "'") and (j < len(lines[i]) - 2) and is_apostrophe:
+                if lines[i][j+1] == "'":
+                    if lines[i][j+2] == "'":
+                        second_apostrophe_i = i            
+                        second_apostrophe_j = j
+                        is_apostrophe_done = True
+            # Mengambil indeks ketika menemukan multiple line comment pertama
+            elif (lines[i][j] == "'") and (j < len(lines[i]) - 2):
+                if lines[i][j+1] == "'":
+                    if lines[i][j+2] == "'":
+                        first_apostrophe_i = i
+                        first_apostrophe_j = j
+                        is_apostrophe = True
+            
+            # Apabila multiple line comment pertama dan kedua telah ditemukan
+            if is_apostrophe and is_apostrophe_done:
+                front_word = lines[first_apostrophe_i][:first_apostrophe_j]
+                back_word = lines[second_apostrophe_i][second_apostrophe_j+3:]
+
+                # Menghapus baris diantara kedua komen
+                for k in range(first_apostrophe_i+1, second_apostrophe_i):
+                    lines[k] = ""
+                
+                # Menangani per kasus
+                if (first_apostrophe_i == second_apostrophe_i):         # dalam satu baris
+                    lines[first_apostrophe_i] = front_word + back_word
+                else:                                                   # tidak dalam satu baris
+                    lines[first_apostrophe_i] = front_word
+                    lines[second_apostrophe_i] = back_word
+                
+                is_apostrophe = False
+                is_apostrophe_done = False
+            
+            j += 1
+
+    # Cek untuk komen dengan petik 2
+    is_ditto = False
+    is_ditto_done = False
+    for i in range(len(lines)):
+        j = 0
+        while j < len(lines[i]):
+            # Mengambil indeks ketika menemukan multiple line comment kedua
+            if (lines[i][j] == '"') and (j < len(lines[i]) - 2) and is_ditto:
+                if lines[i][j+1] == '"':
+                    if lines[i][j+2] == '"':
+                        second_ditto_i = i
+                        second_ditto_j = j
+                        is_ditto_done = True
+            # Mengambil indeks ketika menemukan multiple line comment pertama
+            elif (lines[i][j] == '"') and (j < len(lines[i]) - 2):
+                if lines[i][j+1] == '"':
+                    if lines[i][j+2] == '"':
+                        first_ditto_i = i
+                        first_ditto_j = j
+                        is_ditto = True
+
+            # Apabila multiple line comment pertama dan kedua telah ditemukan
+            if is_ditto and is_ditto_done:
+                front_word = lines[first_ditto_i][:first_ditto_j]
+                back_word = lines[second_ditto_i][second_ditto_j+3:]
+
+                # Menghapus baris diantara kedua komen
+                for k in range(first_ditto_i+1, second_ditto_i):
+                    lines[k] = ""
+
+                # Menangani per kasus   
+                if (first_ditto_i == second_ditto_i):               # dalam satu baris
+                    lines[first_ditto_i] = front_word + back_word
+                else:                                               # tidak dalam satu baris
+                    lines[first_ditto_i] = front_word
+                    lines[second_ditto_i] = back_word
+
+                is_ditto = False
+                is_ditto_done = False
+
+            j += 1
+    
+    return lines
+
+# Cek number
 def number_checker(num):
     number_string = string.digits
     number_list = list(number_string)
@@ -75,6 +164,7 @@ def number_checker(num):
     
     return is_number
 
+# Cek variabel
 def variable_checker(var):
     alphabet_string = string.ascii_letters
     alphabet_list = list(alphabet_string)
@@ -101,6 +191,7 @@ def variable_checker(var):
     
     return is_variable
 
+# Replace operator dengan 2 char menjadi 1 char
 def replace_operator (line):
     line = line.replace(">=",">")
     line = line.replace("<=","<")

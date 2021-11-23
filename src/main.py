@@ -4,6 +4,7 @@ from cyk_algorithm import cyk_algorithm
 from checker import replace_operator
 from checker import string_checker
 from checker import comment_checker
+from checker import multicomment_checker
 import sys
 
 symbols = ['(', ')', '[', ']', '{', '}',
@@ -19,6 +20,8 @@ filename = sys.argv[1]
 lines = []
 with open(filename) as file:
     lines = file.readlines()
+    lines = multicomment_checker(lines)
+
 
 for i in range(len(lines)):
     lines[i] = string_checker(lines[i])

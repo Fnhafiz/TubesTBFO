@@ -2,6 +2,8 @@ from rules_parser import rules_parser
 from symbols_parser import symbols_parser
 from cyk_algorithm import cyk_algorithm
 from cykalg import cykParse
+from replace_operator import replace_operator
+
 import sys
 
 symbols = ['(', ')', '[', ']', '{', '}',
@@ -18,7 +20,6 @@ formatted_lines = []
 for i in range(len(lines)):
     temp = symbols_parser(lines[i], symbols)
     formatted_lines.append(temp)
-    print(temp)
 
 rules = rules_parser('CNF_GABUNGAN.txt')
 

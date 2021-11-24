@@ -1,5 +1,6 @@
 import string
 
+''' LINE '''
 # Mengatasi kasus string
 def string_checker(line):
     # Mengatasi kasus string menggunakan 1 petik
@@ -77,6 +78,68 @@ def comment_checker(line):
     
     return line
 
+
+# Cek number
+def number_checker(num):
+    number_string = string.digits
+    number_list = list(number_string)
+
+    is_number = True
+    num_list = list(num)
+    minus = "-"
+
+    i = 0
+    if ((num_list[i] in number_list) or (num_list[i] == minus)):
+        i += 1   
+    else :
+        is_number = False
+        return is_number
+
+    while(i<len(num_list)):
+        if (num_list[i] in number_list) :
+            i += 1
+        else :
+            is_number = False
+            break
+    
+    return is_number
+
+# Cek variabel
+def variable_checker(var):
+    alphabet_string = string.ascii_letters
+    alphabet_list = list(alphabet_string)
+    digit_string = string.digits
+    digit_list = list(digit_string)
+    underscore = '_'
+
+    is_variable = True
+    var_list = list(var)
+    
+    i = 0
+    if ((var_list[i] in alphabet_list) or (var_list[i] == underscore)):
+        i += 1   
+    else :
+        is_variable = False
+        return is_variable
+    
+    while (i<len(var_list)):
+        if ((var_list[i] in alphabet_list) or (var_list[i] == underscore) or (var_list[i] in digit_list)):
+            i += 1
+        else :
+            is_variable = False
+            break
+    
+    return is_variable
+
+# Replace operator dengan 2 char menjadi 1 char
+def replace_operator (line):
+    line = line.replace(">=",">")
+    line = line.replace("<=","<")
+    line = line.replace("==","<")
+    line = line.replace("**","*")
+    return line
+
+''' LINES '''
 # Mengatasi kasus comment multiple line
 def multicomment_checker(lines):
     # Cek untuk comment dengan petik 1
@@ -178,65 +241,26 @@ def multicomment_checker(lines):
     
     return lines
 
-# Cek number
-def number_checker(num):
-    number_string = string.digits
-    number_list = list(number_string)
+# Mengatasi kasus joining line
+def joining_line_checker(lines):
+    for i in range(len(lines)-1, -1, -1):
+        j = 0
+        while j < len(lines[i]):
+            if (lines[i][j] == '\\'):
+                front_word = lines[i][:j]
+                back_word = lines[i+1].strip(" ")
 
-    is_number = True
-    num_list = list(num)
-    minus = "-"
+                lines[i] = front_word + " " + back_word
 
-    i = 0
-    if ((num_list[i] in number_list) or (num_list[i] == minus)):
-        i += 1   
-    else :
-        is_number = False
-        return is_number
+                # # Kasus apabila spasi antara huruf lebih dari satu
+                # if (front_word[j-1] == " "):
+                #     lines[i] = front_word + back_word
+                # else:
+                #     lines[i] = front_word + " " + back_word
+                lines[i+1] = ""
+            j += 1
 
-    while(i<len(num_list)):
-        if (num_list[i] in number_list) :
-            i += 1
-        else :
-            is_number = False
-            break
-    
-    return is_number
-
-# Cek variabel
-def variable_checker(var):
-    alphabet_string = string.ascii_letters
-    alphabet_list = list(alphabet_string)
-    digit_string = string.digits
-    digit_list = list(digit_string)
-    underscore = '_'
-
-    is_variable = True
-    var_list = list(var)
-    
-    i = 0
-    if ((var_list[i] in alphabet_list) or (var_list[i] == underscore)):
-        i += 1   
-    else :
-        is_variable = False
-        return is_variable
-    
-    while (i<len(var_list)):
-        if ((var_list[i] in alphabet_list) or (var_list[i] == underscore) or (var_list[i] in digit_list)):
-            i += 1
-        else :
-            is_variable = False
-            break
-    
-    return is_variable
-
-# Replace operator dengan 2 char menjadi 1 char
-def replace_operator (line):
-    line = line.replace(">=",">")
-    line = line.replace("<=","<")
-    line = line.replace("==","<")
-    line = line.replace("**","*")
-    return line
+    return lines
 
 
 '''Test Case Variable Checker'''

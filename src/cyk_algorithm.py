@@ -9,6 +9,7 @@ def cyk_algorithm(line, rules, condition):
 
     for i in range(0, n):
         for j in range(0, n-i):
+
             # Untuk case pada baris pertama, kita cek terminal
             if i == 0:
                 for lhs, rule in rules.items():
@@ -54,6 +55,7 @@ def cyk_algorithm(line, rules, condition):
                             if len(table[i][j]) == 0:
                                 if(variable_checker(line[j])):
                                     table[i][j].add(lhs)
+                                    
                     # cek untuk number
                     for rhs in rule:
                         if rhs[0] == 'num':

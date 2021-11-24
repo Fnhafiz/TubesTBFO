@@ -2,6 +2,7 @@
 def symbols_parser(line, symbols):
     line = line.strip("\n")
     line = line.strip(" ")
+    line = ' '.join(line.split())
     list_line = line.split(" ")
     i = 0
     while(i < len(list_line)):

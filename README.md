@@ -14,4 +14,4 @@ Muhammad Akmal Arifin | 13520037
 2. Buka folder src dan tulis 'cd src' di cmd atau terminal
 3. Tulis "main.py file.py" dengan file adalah file yang akan dicompile
 4. Terminal akan memberikan pesan accepted jika tidak ada syntax error
-5. Jika ada syntax error dalam file maka terminal akan memberikan pesan "Syntax Error Terjadi kesalahan ekspresi pada line "Berisi line syntax error"
+5. Jika ada syntax error dalam file maka terminal akan memberikan pesan "Syntax Error Terjadi kesalahan ekspresi pada line 'Berisi line syntax error'"

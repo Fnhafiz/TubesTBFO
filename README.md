@@ -4,10 +4,11 @@ Compiler Python dengan bahasa Python
 Tugas Besar Teori Bahasa Formal dan Otomata
 
 ## Anggota Kelompok
-Nama | NIM
-Farhan Hafiz | 13520027
-Fitrah Ramadhani Nugroho | 13520030
-Muhammad Akmal Arifin | 13520037
+| Nama | NIM |
+|------|-----|
+| Farhan Hafiz | 13520027 |
+| Fitrah Ramadhani Nugroho | 13520030 |
+| Muhammad Akmal Arifin | 13520037 |
 
 ## Cara Menjalankan Compiler
 1. Clone repository

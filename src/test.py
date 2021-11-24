@@ -1,6 +1,7 @@
 import var34,KOKO as v34, v35
+import math
 from vard import funct as func
-with open('example.txt', 'w') as my_file:
+with HU[34] as my_file:
     LOLO = JJD
 while X<L and Y<X or not [z] :
     D = 123
@@ -26,8 +27,9 @@ class var:
     kill = [x,y]
     VAR3 = [k for t,u in x]
     x in [x,y]
-    x*v is [D]
+    x*v is D[D]
     [] is True
+math(dji).sqrt()
 '''
 DDFFGGHH
 '''

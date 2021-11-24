@@ -137,7 +137,10 @@ def replace_operator (line):
     line = line.replace("<=","<")
     line = line.replace("==","<")
     line = line.replace("**","*")
+    line = line.replace("<>","<")
+    line = line.replace(".","*")
     return line
+
 
 ''' LINES '''
 # Mengatasi kasus comment multiple line
@@ -261,7 +264,6 @@ def joining_line_checker(lines):
             j += 1
 
     return lines
-
 
 '''Test Case Variable Checker'''
 

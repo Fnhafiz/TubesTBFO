@@ -11,7 +11,7 @@ import sys
 symbols = ['(', ')', '[', ']', '{', '}',
            ',', ':', '\'', '"',
            '+','-','*','/','%','@',
-           '<', '>', '=', '\\']
+           '<', '>', '=', '\\', '.']
 
 # condition indeks 1 untuk kondisi if elif dan else
 # condition indeks 2 untuk kondisi apakah masuk fungsi atau tidak

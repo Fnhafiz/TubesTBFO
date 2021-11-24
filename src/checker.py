@@ -104,6 +104,42 @@ def number_checker(num):
     
     return is_number
 
+# Cek Float
+def float_checker(line):
+    number_string = string.digits
+    number_list = list(number_string)
+    dot = '.'
+    is_dot = False
+
+    i = 0
+    while (i<len(line)) :
+        if (line[i] in number_list):
+            j = i+1
+            while (j<len(line)) and (not is_dot):
+                if (line[j] in number_list):
+                    j += 1
+                elif (line[j] == dot):
+                    front_num = line[:j]
+                    back_num = line[j+1:]
+                    line = front_num + back_num
+                    is_dot = True
+                    break
+            return line
+        elif (line[i] == dot):
+            j = i+1
+            if (line[j] in number_list):
+                front_num = line[:i]
+                back_num = line[j:]
+                line = front_num + back_num
+                return line
+                break
+            else : 
+                i+=1
+        else :
+            i += 1
+    
+    return line
+
 # Cek variabel
 def variable_checker(var):
     alphabet_string = string.ascii_letters
@@ -292,6 +328,13 @@ if (is_number == True):
     print("yes")
 else :
     print("No")
+'''
+
+'''Test Case Float Checker'''
+'''
+line = "math.sqrt(0.12.1234)"
+line_new = float_checker(line)
+print(line_new)
 '''
 
 '''Test Case Replace Operator'''

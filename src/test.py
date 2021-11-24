@@ -30,6 +30,7 @@ class var:
     x*v is D[D]
     [] is True
 math(dji).sqrt()
+0 . 1
 '''
 DDFFGGHH
 '''

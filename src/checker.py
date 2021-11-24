@@ -334,11 +334,11 @@ else :
 '''
 
 '''Test Case Float Checker'''
-
+'''
 line = "import var34A "
 line_new = float_checker(line)
 print(line_new)
-
+'''
 
 '''Test Case Replace Operator'''
 

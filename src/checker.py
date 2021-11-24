@@ -294,7 +294,9 @@ def multicomment_checker(lines):
 def joining_line_checker(lines):
     for i in range(len(lines)-1, -1, -1):
         j = len(lines[i]) - 2
-        if lines[i][j] == '\\':
+        if (j < 0):
+            continue
+        elif lines[i][j] == '\\':
             front_word = lines[i][:j]
             back_word = lines[i+1].strip(" ")
 

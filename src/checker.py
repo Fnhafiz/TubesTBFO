@@ -294,21 +294,13 @@ def multicomment_checker(lines):
 # Mengatasi kasus joining line
 def joining_line_checker(lines):
     for i in range(len(lines)-1, -1, -1):
-        j = 0
-        while j < len(lines[i]):
-            if (lines[i][j] == '\\'):
-                front_word = lines[i][:j]
-                back_word = lines[i+1].strip(" ")
+        j = len(lines[i]) - 2
+        if lines[i][j] == '\\':
+            front_word = lines[i][:j]
+            back_word = lines[i+1].strip(" ")
 
-                lines[i] = front_word + " " + back_word
-
-                # # Kasus apabila spasi antara huruf lebih dari satu
-                # if (front_word[j-1] == " "):
-                #     lines[i] = front_word + back_word
-                # else:
-                #     lines[i] = front_word + " " + back_word
-                lines[i+1] = ""
-            j += 1
+            lines[i] = front_word + " " + back_word
+            lines[i+1] = ""
 
     return lines
 

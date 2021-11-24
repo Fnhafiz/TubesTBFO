@@ -28,6 +28,8 @@ with open(filename) as file:
 formatted_lines = []
 for i in range(len(lines)):
     lines_checked = lines[i]
+    lines_checked = lines_checked.rstrip("\n")
+    lines_checked = lines_checked.strip(" ")
     lines_checked = comment_checker(lines_checked)
     lines_checked = string_checker(lines_checked)
     lines_checked = float_checker(lines_checked)
@@ -42,6 +44,9 @@ i = 0
 while isCorrect and i < len(formatted_lines):
     line = formatted_lines[i]
 
+    # CEK LINE
+    # print(line)
+
     if (line[0] == ''):
         i += 1
         continue
@@ -52,6 +57,9 @@ while isCorrect and i < len(formatted_lines):
 if (isCorrect):
     print("Accepted")
 else:
+    # CEK CONDITION
+    print(condition)
+
     print("Syntax Error")
     errorLine = "".join(lines[i])
     errorLine = errorLine.strip("\n")

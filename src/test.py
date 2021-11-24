@@ -19,7 +19,8 @@ def var(var1, var2, va3r, var4, var5):
         for var, var, var, var in range(var, var, var):
             return range(6,7)
 def iid(vark): print(n)
--4 -5 -6
+if (Test == True) :
+    -4 -5 -6
 if x>8: 5*4
 if A in B :
     A ** B

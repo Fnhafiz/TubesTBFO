@@ -185,7 +185,6 @@ def replace_operator (line):
     line = line.replace("%=","/")
     line = line.replace("//=","/")
     line = line.replace("**=","*")
-    line = line.replace("n","a")
     return line
 
 

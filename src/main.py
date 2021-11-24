@@ -1,4 +1,4 @@
-from rules_parser import rules_parser
+from line_parser import rules_parser
 from line_parser import symbols_parser
 from cyk_algorithm import cyk_algorithm
 from checker import replace_operator

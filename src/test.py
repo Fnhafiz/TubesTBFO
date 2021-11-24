@@ -1,6 +1,9 @@
+vi=2
+vi **= 4
 import var34,KOKO as v34, v35
 import math
 from vard import funct as func
+
 with HU[34] as my_file:
     LOLO = JJD
 while X<L and Y<X or not [z] :

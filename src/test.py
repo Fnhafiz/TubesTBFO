@@ -3,6 +3,7 @@ import math
 from vard import funct as func
 with HU[34] as my_file:
     LOLO = JJD
+LOK = [({})]
 while X<L and Y<X or not [z] :
     D = 123
     break

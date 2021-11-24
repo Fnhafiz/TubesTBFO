@@ -123,8 +123,11 @@ def float_checker(line):
                     back_num = line[j+1:]
                     line = front_num + back_num
                     is_dot = True
+                    return line
                     break
-            return line
+                else :
+                    break
+            break
         elif (line[i] == dot):
             j = i+1
             if (line[j] in number_list):
@@ -332,7 +335,7 @@ else :
 
 '''Test Case Float Checker'''
 '''
-line = "math.sqrt(0.12.1234)"
+line = "import var34A "
 line_new = float_checker(line)
 print(line_new)
 '''

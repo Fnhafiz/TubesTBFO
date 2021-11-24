@@ -3,7 +3,6 @@ import math
 from vard import funct as func
 with HU[34] as my_file:
     LOLO = JJD
-LOK = [({})]
 while X<L and Y<X or not [z] :
     D = 123
     break
@@ -18,6 +17,9 @@ def var(var1, var2, va3r, var4, var5):
             return range(6,7)
 def iid(vark): print(n)
 if x>8: 5*4
+if A in B :
+    A ** B
+elif B in A :
 else : 8*3
 print("hallo")
 for x in range( 5,6,3) : print(n)
@@ -30,8 +32,9 @@ class var:
     x in [x,y]
     x*v is D[D]
     [] is True
-math(dji).sqrt()
-0 . 1
+math.sqrt.__name__()
+1.2.3
+2.3
 '''
 DDFFGGHH
 '''

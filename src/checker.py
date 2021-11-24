@@ -177,7 +177,6 @@ def replace_operator (line):
     line = line.replace("==","<")
     line = line.replace("**","*")
     line = line.replace("<>","<")
-    line = line.replace(".","*")
     return line
 
 

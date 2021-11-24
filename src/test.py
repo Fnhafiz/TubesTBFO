@@ -9,17 +9,18 @@ while X<L and Y<X or not [z] :
 if var > var :
     not MOM
     while not mom :
-        var(1, var2, var3)
+        var(1, var2, var3,-5)
         continue
 def var(var1, var2, va3r, var4, var5):  
     for var in var:
         for var, var, var, var in range(var, var, var):
             return range(6,7)
 def iid(vark): print(n)
+-4 -5 -6
 if x>8: 5*4
 if A in B :
     A ** B
-elif B in A :
+elif B in A :4
 else : 8*3
 print("hallo")
 for x in range( 5,6,3) : print(n)
@@ -33,7 +34,6 @@ class var:
     x*v is D[D]
     [] is True
 math.sqrt.__name__()
-1.2.3
 2.3
 '''
 DDFFGGHH

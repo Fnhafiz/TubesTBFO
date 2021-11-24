@@ -6,6 +6,7 @@ from checker import string_checker
 from checker import comment_checker
 from checker import multicomment_checker
 from checker import joining_line_checker
+from checker import float_checker
 import sys
 
 symbols = ['(', ')', '[', ']', '{', '}',
@@ -29,6 +30,7 @@ for i in range(len(lines)):
     lines_checked = lines[i]
     lines_checked = comment_checker(lines_checked)
     lines_checked = string_checker(lines_checked)
+    lines_checked = float_checker(lines_checked)
     lines_checked = replace_operator(lines_checked)
     temp = symbols_parser(lines_checked, symbols)
     formatted_lines.append(temp)
